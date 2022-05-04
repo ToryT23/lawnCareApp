@@ -23,22 +23,19 @@ export const EditTaskForm = () => {
   const [isLoading, setisLoading] = useState(false);
 
   const handleFieldChange = (evt) => {
-    const stateToChange = { ... task };
+    const stateToChange = { ...task };
     stateToChange[evt.target.id] = evt.target.value;
-    setTask((stateToChange));
+    setTask(stateToChange);
   };
   const handleFieldChangeForNum = (evt) => {
-    const stateToChange = { ... task };
+    const stateToChange = { ...task };
     stateToChange[evt.target.id] = parseInt(evt.target.value);
-    setTask((stateToChange));
+    setTask(stateToChange);
   };
-
- 
 
   const updatingExistUser = (evt) => {
     evt.preventDefault();
     setisLoading(true);
-
 
     updateTask(task).then(() => {
       nav("/serviceTask");
@@ -64,10 +61,10 @@ export const EditTaskForm = () => {
   const customers = users.filter((user) => user.isEmployee === false);
 
   useEffect(() => {
-    getLawnTaskById(taskId).then((res) => setTask(res)).
-    then(() => getUsers())
-    .then(() =>getAllServices()
-    .then((res) => setServiceTypes(res) ))
+    getLawnTaskById(taskId)
+      .then((res) => setTask(res))
+      .then(() => getUsers())
+      .then(() => getAllServices().then((res) => setServiceTypes(res)));
 
     setisLoading(false);
   }, []);
@@ -88,7 +85,11 @@ export const EditTaskForm = () => {
             >
               <option hidden> Select an employee </option>
               {employees.map((employee) => (
-                <option defaultValue={employee.id === task.employeeId} value={employee.id} key={employee.id}>
+                <option
+                  defaultValue={employee.id === task.employeeId}
+                  value={employee.id}
+                  key={employee.id}
+                >
                   {employee.name}
                 </option>
               ))}
@@ -140,7 +141,8 @@ export const EditTaskForm = () => {
               id="date"
               type="date"
               value={task.date}
-              onChange={handleFieldChange}  />
+              onChange={handleFieldChange}
+            />
           </div>
         </fieldset>
         <fieldset>
@@ -158,6 +160,14 @@ export const EditTaskForm = () => {
         </fieldset>
         <button disabled={isLoading} type="button" onClick={updatingExistUser}>
           Update
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            nav("/servicetask");
+          }}
+        >
+          Cancel
         </button>
       </form>
     </>

@@ -36,7 +36,7 @@
       "id": 1,
       "name": "TJ",
       "companyId": 2,
-      "phoneNumber": 1234567890,
+      "phoneNumber": 1234567891,
       "email": "t@class.com",
       "isAdmin": true,
       "isEmployee": true,
@@ -171,6 +171,14 @@
       "date": "2022-05-25",
       "notes": "Bring some weed be gone!",
       "id": 7
+    },
+    {
+      "userId": 6,
+      "employeeId": 1,
+      "serviceTypeId": 1,
+      "date": "2022-06-11",
+      "notes": "Grass needs to be cut!",
+      "id": 8
     }
   ]
 }
