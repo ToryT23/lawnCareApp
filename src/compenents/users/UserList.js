@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { deleteUser, getAllUsers } from "../../modules/UserManager";
 import { UserCard } from "./UserCard";
 import { useNavigate } from "react-router-dom";
+import "./User.css"
 
 export const UserList = () => {
   const nav = useNavigate();
 
   const [appUsers, updateUsers] = useState([]);
+
+const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer")).companyId
 
   const handleDeleteUser = (id) => {
     deleteUser(id)
@@ -30,17 +33,18 @@ export const UserList = () => {
         Add User
       </button>
 
-      <div>
-        {appUsers.map((user) => (
-        <UserCard 
+      <div className="userList">
+        {appUsers.map((user ) => (
+         loggedUser === user.companyId  ? <UserCard 
           key={user.id} 
           user={user} 
           deleteAUser={handleDeleteUser}
           
           />
+          :""
         ))}
       </div>
     </>
   );
 };
-// !user.isEmployee ? "" :  !user.isAdmin ? "" 
+

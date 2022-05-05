@@ -12,7 +12,6 @@ export const TaskCard = ({ lawnTask, deleteATask }) => {
     const theService = returnAllServiceTypes().find(
       (service) => service.id === serviceId
     );
-    // console.log(theService)
     return (
       <div>
         {" "}
@@ -31,8 +30,8 @@ export const TaskCard = ({ lawnTask, deleteATask }) => {
   };
 
   return (
-    <>
-      <div className="card">
+    < div className="card">
+      <div >
         Customer: {lawnTask.user.name} <br />
         Address: {lawnTask.user.address} <br />
         Date: {lawnTask.date} <br />
@@ -40,12 +39,12 @@ export const TaskCard = ({ lawnTask, deleteATask }) => {
         Service: {lawnTask.serviceType.type} <br />
         Price: ${lawnTask.serviceType.price} <br />
         Notes: {lawnTask.notes} <br />
-      </div>
-      <button onClick={() => deleteATask(lawnTask.id)}>Delete</button>
+      <button type="button" onClick={() => deleteATask(lawnTask.id)}>Delete</button>
       <Link to={`/lawntask/editTask/${lawnTask.id}`}>
     <button type="button" >Edit</button>
   </Link>
-    </>
+      </div>
+    </div>
   );
 };
 

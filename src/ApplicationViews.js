@@ -12,7 +12,6 @@ import { EditTaskForm } from "./compenents/servicetask/EditTaskForm";
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = () => {
-    console.log(isAuthenticated);
     return isAuthenticated ? <Outlet />: <Navigate to="/login" />;
   };
 

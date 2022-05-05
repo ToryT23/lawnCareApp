@@ -1,0 +1,26 @@
+.taskList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card {
+    border-style: dashed;
+    box-sizing: border-box;
+    flex-direction: row;
+}
+h2 {
+    color: #2c7219
+}
+
+button {
+ background-color: lightgreen;
+  color: black;
+  border: 2px solid #4CAF50;
+  width: 100px;
+  transition-duration: 0.8s;
+}
+  
+button:hover {
+    background-color: #4CAF50; 
+    color: darkgreen;
+  }

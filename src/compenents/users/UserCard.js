@@ -12,8 +12,8 @@ function formatPhoneNumber(phoneNumberString) {
 
 export const UserCard = ({ user, deleteAUser,  }) => {
   return (
-    <>
-      <div>
+    <div  className="userList">
+      <div className="card">
         Name: {user.name} <br />
         Address: {user.address} <br />
         Service Company: {user.company.companyName} <br />
@@ -22,15 +22,15 @@ export const UserCard = ({ user, deleteAUser,  }) => {
         {/* {user.isAdmin} <br />
         {user.isEmployee} <br /> */}
         <br />
-      </div>
-      <button onClick={() => {
-          deleteAUser(user.id)
+      <button type="button" onClick={() => {
+        deleteAUser(user.id)
       }}>
           DELETE
       </button>
       <Link to={`/users/editUser/${user.id}`}>
     <button type="button" >EDIT</button>
   </Link>
-    </>
+        </div>
+    </div>
   );
 };

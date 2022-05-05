@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { addUser, getAllCompanies } from "../../modules/UserManager";
 
 export const UserForm = () => {
+  const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer")).companyId
+
   const nav = useNavigate();
-  const [users, setUsers] = useState ({isEmployee: false, isAdmin: false });
+  const [users, setUsers] = useState ({ companyId:loggedUser, isEmployee: false, isAdmin: false });
   const [companies, setCompany] = useState([]);
 
   useEffect(() => {
@@ -12,7 +14,6 @@ export const UserForm = () => {
     .then((res) => setCompany(res));
   }, []);
 
-  const loggedUser = parseInt(localStorage.getItem("lawn_user"))
 
     const saveNewUser = (event) => {          
         event.preventDefault()
@@ -44,25 +45,6 @@ export const UserForm = () => {
               setUsers(copy);
             }}
           />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="companyId">Name of Company:</label>
-          <select
-          id="companyId"
-          autoComplete="off"
-            onChange={(event) => {
-              const copy = { ...users };
-              copy.companyId = parseInt(event.target.value);
-              setUsers(copy);
-            }}
-          >
-            <option hidden> Select Your Company </option>
-            {companies.map((company) => (
-              <option value={company.id} key={company.id}>{company.companyName}</option>
-            ))}
-          </select>
         </div>
       </fieldset>
       <fieldset>
@@ -126,7 +108,7 @@ export const UserForm = () => {
       </fieldset>
 
       <button type="button" onClick={saveNewUser}>Add User</button>
-      <button>Cancel</button>
+      <button type="button" onClick={() => nav("/users")}>Cancel</button>
     </form>
   );
 };

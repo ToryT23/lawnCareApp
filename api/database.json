@@ -121,6 +121,26 @@
       "email": "bb@class.com",
       "address": "38 bipp lane",
       "id": 9
+    },
+    {
+      "companyId": 2,
+      "isEmployee": false,
+      "isAdmin": false,
+      "name": "Rosss",
+      "phoneNumber": 3636636633,
+      "email": "r@class.com",
+      "address": "r.eksk",
+      "id": 10
+    },
+    {
+      "companyId": 2,
+      "isEmployee": false,
+      "isAdmin": false,
+      "name": "Kelvin Nm",
+      "phoneNumber": 7477477474,
+      "email": "k@email.com",
+      "address": "33 km drive",
+      "id": 11
     }
   ],
   "lawntasks": [
@@ -179,6 +199,22 @@
       "date": "2022-06-11",
       "notes": "Grass needs to be cut!",
       "id": 8
+    },
+    {
+      "employeeId": 2,
+      "userId": 9,
+      "serviceTypeId": 1,
+      "date": "2022-05-06",
+      "notes": "Cut grass before mothers day.",
+      "id": 9
+    },
+    {
+      "employeeId": 5,
+      "userId": 7,
+      "serviceTypeId": 4,
+      "date": "2022-05-10",
+      "notes": "Family wants weeds cleaned up around the garden.",
+      "id": 10
     }
   ]
 }

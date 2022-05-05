@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./NavBar.css"
 
 export const NavBar = ({ clearUser, isAuthenticated }) => {
   const navigate = useNavigate();
@@ -10,20 +11,20 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
     navigate("/");
   };
   return (
-    <nav className="navbar">
-      <ul className="naaa">
-        <li className="nav-item active">
+    <div className="navbar">
+      <ul className="linkOrder">
+        <li>
           <Link className="nav-link" to="/">
             Home
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="users">
+          <Link to="users">
             Users
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="serviceTask">
+          <Link to="serviceTask">
             Service Task
           </Link>
         </li>
@@ -33,6 +34,6 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
           </button>
         </li>
       </ul>
-    </nav>
+    </div>
   );
 };

@@ -7,13 +7,12 @@ import {
 } from "../../modules/UserManager";
 
 export const EditUserForm = () => {
+  const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer")).companyId
   const nav = useNavigate();
-  const [user, setUser] = useState({name:"", address:"", email:"", companyId:"", phoneNumber:"", isAdmin: false, isEmployee: false});
+  const [user, setUser] = useState({name:"", address:"", email:"", companyId:loggedUser, phoneNumber:"", isAdmin: false, isEmployee: false});
   const [isLoading, setisLoading] = useState(false);
   const { userId } = useParams();
   const [companies, setCompanies] = useState([]);
-
-  //   getAllCompanies().then((res) => setCompanies(res));
 
   const handleFieldChange = (evt) => {
     const stateToChange = { ...user };
@@ -62,24 +61,6 @@ export const EditUserForm = () => {
               value={user.name}
               onChange={handleFieldChange}
             />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label htmlFor="companyId">Name of Company:</label>
-            <select
-              id="companyId"
-              autoComplete="off"
-              value={user.companyId}
-              onChange={(evt) => handleFieldChangeForNum(evt)}
-              >
-              <option hidden> Select Your Company </option>
-              {companies.map((company) => (
-                  <option value={company.id} key={company.id}>
-                  {company.companyName}
-                </option>
-              ))}
-            </select>
           </div>
         </fieldset>
         <fieldset>
@@ -135,7 +116,7 @@ export const EditUserForm = () => {
         <button disabled={isLoading} type="button" onClick={updatingExistUser}>
           Update
         </button>
-        <button onClick={() => {
+        <button type="button" onClick={() => {
             nav("/users")
         }}>Cancel</button>
       </form>

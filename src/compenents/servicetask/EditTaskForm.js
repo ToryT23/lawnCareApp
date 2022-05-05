@@ -45,7 +45,6 @@ export const EditTaskForm = () => {
   const companyId = JSON.parse(
     sessionStorage.getItem("lawn_customer")
   ).companyId;
-  console.log(companyId);
 
   const getUsers = () => {
     getAllUsers()

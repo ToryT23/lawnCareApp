@@ -14,9 +14,7 @@ export const AddTaskForm = () => {
   const nav = useNavigate()
 
   const companyId = JSON.parse(
-    sessionStorage.getItem("lawn_customer")
-  ).companyId;
-  console.log(companyId);
+    sessionStorage.getItem("lawn_customer")).companyId;
 
   const saveLawnTask = (event) => {
     event.preventDefault()
@@ -42,9 +40,6 @@ export const AddTaskForm = () => {
     getUsers();
     getAllServices().then((res) => setServiceType(res));
   }, []);
-  console.log(users);
-  console.log(employees);
-  console.log(customers);
 
   return (
     <>
@@ -146,6 +141,7 @@ export const AddTaskForm = () => {
           </div>
         </fieldset>
         <button onClick={saveLawnTask}>Submit Task</button>
+        <button onClick={() => nav("/serviceTask")}>Cancel</button>
       </form>
     </>
   );
