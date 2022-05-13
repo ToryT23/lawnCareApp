@@ -45,7 +45,7 @@ export const EditUserForm = () => {
   return (
     <>
       <form className="userForm">
-        <h2 className="userForm__title">Add an User</h2>
+        <h2 className="userForm__title">Edit an User</h2>
         <fieldset>
           <div className="form-group">
             <label htmlFor="name">Name of User:</label>

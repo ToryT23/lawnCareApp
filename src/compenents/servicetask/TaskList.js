@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   deleteATask,
-  getLawnTask,
+  getLawnTaskByCompany,
+  getTotalPriceOfServices,
 } from "../../modules/TaskManager";
 import { getAllCompanies } from "../../modules/UserManager";
 import { TaskCard } from "./TaskCard";
@@ -15,17 +16,17 @@ export const TaskList = () => {
 
   const loggedUser = JSON.parse(
     sessionStorage.getItem("lawn_customer")
-  ).companyId;
+  );
 
   const handleDeleteLawnTask = (id) => {
     deleteATask(id).then(() => {
-      getLawnTask().then(setTask);
+      getLawnTaskByCompany(loggedUser.companyId).then(setTask);
     });
   };
   useEffect(() => {
-    getLawnTask().then((res) => setTask(res));
+    getLawnTaskByCompany(loggedUser.companyId).then((res) => setTask(res));
     getAllCompanies().then((res) => {
-      const companyObj = res.find((company) => company.id === loggedUser);
+      const companyObj = res.find((company) => company.id === loggedUser.companyId);
       setCompany(companyObj);
     });
   }, []);
@@ -41,14 +42,14 @@ export const TaskList = () => {
 
       <div className="taskList">
         {task.map((task) =>
-          loggedUser === task.employeeId ? (
+          loggedUser.companyId === task.employeeId ? (
             ""
           ) : (
             <TaskCard
-              key={task.id}
-              lawnTask={task}
-              deleteATask={handleDeleteLawnTask}
-            />
+            key={task.id}
+            lawnTask={task}
+            deleteATask={handleDeleteLawnTask}
+          />
           )
         )}
       </div>

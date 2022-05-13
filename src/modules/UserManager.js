@@ -1,11 +1,22 @@
 const remoteURL = "http://localhost:8088"
 
-const loggedUser = parseInt(localStorage.getItem("lawn_user"))
-
 
 export const getAllUsers = () => {
   return fetch(`${remoteURL}/users?_expand=company`)
   .then(res => res.json())
+} 
+
+export const getCurrentUser = () => {
+    let user = {}
+   return user = JSON.parse(sessionStorage.getItem("lawn_customer"))
+}
+
+export const getUserByCompany = () => {
+   const loggedUser = getCurrentUser()
+    return fetch(`${remoteURL}/users?_expand=company`)
+    .then(res => res.json())
+    .then( res => res.filter( res1 => res1.companyId === loggedUser.companyId))
+
 }
 
 export const getAllCompanies = () => {

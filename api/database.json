@@ -106,10 +106,10 @@
       "isEmployee": false,
       "isAdmin": false,
       "address": "344 memohis",
-      "name": "eee",
+      "name": "Eastson",
       "companyId": 1,
       "phoneNumber": 1111222222,
-      "email": "jjsdjj@o.com",
+      "email": "e@class.com",
       "id": 8
     },
     {
@@ -131,43 +131,9 @@
       "email": "r@class.com",
       "address": "r.eksk",
       "id": 10
-    },
-    {
-      "companyId": 2,
-      "isEmployee": false,
-      "isAdmin": false,
-      "name": "Kelvin Nm",
-      "phoneNumber": 7477477474,
-      "email": "k@email.com",
-      "address": "33 km drive",
-      "id": 11
     }
   ],
   "lawntasks": [
-    {
-      "id": 1,
-      "employeeId": 1,
-      "userId": 3,
-      "serviceTypeId": 3,
-      "date": "2022-05-05",
-      "notes": "Make sure you get weeds near the porch."
-    },
-    {
-      "id": 2,
-      "employeeId": 2,
-      "userId": 3,
-      "serviceTypeId": 2,
-      "date": "2022-04-29",
-      "notes": "Please leave tree branches by the street."
-    },
-    {
-      "employeeId": 1,
-      "userId": 3,
-      "serviceTypeId": 2,
-      "date": "2022-05-04",
-      "notes": "n/a",
-      "id": 4
-    },
     {
       "employeeId": 1,
       "userId": 3,
@@ -183,14 +149,6 @@
       "date": "2022-05-23",
       "notes": "Blow leaves near the street.",
       "id": 6
-    },
-    {
-      "userId": 6,
-      "employeeId": 1,
-      "serviceTypeId": 1,
-      "date": "2022-05-25",
-      "notes": "Bring some weed be gone!",
-      "id": 7
     },
     {
       "userId": 6,
@@ -215,6 +173,22 @@
       "date": "2022-05-10",
       "notes": "Family wants weeds cleaned up around the garden.",
       "id": 10
+    },
+    {
+      "employeeId": 5,
+      "userId": 8,
+      "serviceTypeId": 1,
+      "date": "2022-05-09",
+      "notes": "gas tank is empty",
+      "id": 12
+    },
+    {
+      "employeeId": 1,
+      "userId": 10,
+      "serviceTypeId": 4,
+      "date": "2022-05-21",
+      "notes": "More mulch",
+      "id": 13
     }
   ]
 }

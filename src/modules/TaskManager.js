@@ -1,12 +1,13 @@
 const remoteURL = "http://localhost:8088";
 
+// const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer")).companyId
+
+
 export const getAllTasks = () => {
   return fetch(`${remoteURL}/users?_embed=lawntasks&_expand=company`)
-  .then(
-    (res) => res.json()
-  );
+  .then((res) => res.json());
+  
 };
-
 
 export const getEmployeesById = (id) => {
     return fetch(`http://localhost:8088/users/${id}`)
@@ -18,6 +19,23 @@ export const getLawnTask = () => {
     .then(res => res.json())
 }
 
+let getPrice = [{ type:"mom" , price: 100,}, {type:"dad" , price: 200}]
+const result = getPrice.reduce((total, currentValue) => total = total + currentValue.price,0);
+//console.log(result)
+
+// expand then sort
+export const getLawnTaskByCompany = (companyId) => {
+  return  fetch(`http://localhost:8088/lawntasks?_expand=user&_expand=serviceType&_sort=date`)
+  .then( (res) => res.json() )
+  .then( (res) => res.filter( (res1) => res1.user?.companyId === companyId))
+}
+
+export const getTotalPriceOfServices = (companyId) => {
+ getLawnTaskByCompany(companyId)
+ .then( (res) => console.log(res.reduce((total, currentValue) => total + parseInt(currentValue.serviceType.price),0)));
+//  console.log(totalPrice)
+}
+getTotalPriceOfServices(2)
 
 let allServiceTypes = [];
 

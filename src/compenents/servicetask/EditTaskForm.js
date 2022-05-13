@@ -6,6 +6,7 @@ import {
   updateTask,
 } from "../../modules/TaskManager";
 import { getAllUsers } from "../../modules/UserManager";
+import "./TaskList.css"
 
 export const EditTaskForm = () => {
   const nav = useNavigate();
@@ -69,7 +70,7 @@ export const EditTaskForm = () => {
   }, []);
 
   return (
-    <>
+    < div className="form">
       <form className="taskForm">
         <h2 className="taskForm__title">Edit this task</h2>
         <fieldset>
@@ -169,6 +170,6 @@ export const EditTaskForm = () => {
           Cancel
         </button>
       </form>
-    </>
+    </div>
   );
 };

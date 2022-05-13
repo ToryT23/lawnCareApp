@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { addTask, getAllServices } from "../../modules/TaskManager";
 import { getAllUsers } from "../../modules/UserManager";
 import { useNavigate } from "react-router-dom";
+import "./TaskList.css"
 
 
 
@@ -42,7 +43,7 @@ export const AddTaskForm = () => {
   }, []);
 
   return (
-    <>
+    < div className="form">
       <form className="taskForm">
         <h2 className="taskForm__title">Enter A Lawn Task</h2>
         <fieldset>
@@ -143,6 +144,6 @@ export const AddTaskForm = () => {
         <button onClick={saveLawnTask}>Submit Task</button>
         <button onClick={() => nav("/serviceTask")}>Cancel</button>
       </form>
-    </>
+    </div>
   );
 };

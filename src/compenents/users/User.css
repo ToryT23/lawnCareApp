@@ -8,3 +8,25 @@
     border-style: dashed;
     box-sizing: border-box
 }
+
+.userForm
+{
+    border-style: hidden;
+    background-color: green;
+    display: table-cell;
+    font-size: xx-large;
+}
+
+h2 {
+    color: black
+}
+input {
+    height: 65px;
+    font-size: x-large;
+    width: 300px;
+}
+
+.pink {
+    display: flex;
+    justify-content: center;
+}
