@@ -5,7 +5,7 @@ import {
   returnAllServiceTypes,
 } from "../../modules/TaskManager";
 
-export const TaskCard = ({ lawnTask, deleteATask }) => {
+export const TaskCard = ({ lawnTask, deleteATask, checkBoxMark }) => {
   const [employee, setEmployee] = useState({});
 
   const getServiceInfo = (serviceId) => {
@@ -30,6 +30,7 @@ export const TaskCard = ({ lawnTask, deleteATask }) => {
   };
 
   return (
+    <>
     < div className="card">
       <div >
         Customer: {lawnTask.user.name} <br />
@@ -39,12 +40,32 @@ export const TaskCard = ({ lawnTask, deleteATask }) => {
         Service: {lawnTask.serviceType.type} <br />
         Price: ${lawnTask.serviceType.price} <br />
         Notes: {lawnTask.notes} <br />
-      <button type="button" onClick={() => deleteATask(lawnTask.id)}>Delete</button>
+        </div>
+        <br/>
+
+        <div className="buttonsAndChecks">
+        <div></div>
+      <button type="button" className="listButton" onClick={() => deleteATask(lawnTask.id)}>Delete</button>
+
       <Link to={`/lawntask/editTask/${lawnTask.id}`}>
-    <button type="button" >Edit</button>
+    <button type="button" className="listButton" >Edit</button>
   </Link>
+  <div className="centerTask">
+  <div>
+  <label className="container"  htmlFor="isComplete">Task Completed</label>
+  </div> 
+        <input
+          type="checkbox"
+          name="isComplete"
+          id={`${lawnTask.id}`}
+          onChange={() => checkBoxMark(lawnTask)}
+          />
+
       </div>
+          </div>
+
     </div>
+    </>
   );
 };
 

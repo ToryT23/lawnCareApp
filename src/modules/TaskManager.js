@@ -17,18 +17,24 @@ export const getEmployeesById = (id) => {
 export const getLawnTask = () => {
     return fetch(`http://localhost:8088/lawntasks?_expand=user&_expand=serviceType`)
     .then(res => res.json())
-}
+  }
+  
+  let getPrice = [{ type:"mom" , price: 100,}, {type:"dad" , price: 200}]
+  const result = getPrice.reduce((total, currentValue) => total = total + currentValue.price,0);
+  //console.log(result)
+  
+  // expand then sort
+  export const getLawnTaskByCompany = (companyId) => {
+    return  fetch(`http://localhost:8088/lawntasks?_expand=user&_expand=serviceType&_&isComplete=false&_sort=date`)
+    .then( (res) => res.json() )
+    .then( (res) => res.filter( (res1) => res1.user?.companyId === companyId))
+  }
 
-let getPrice = [{ type:"mom" , price: 100,}, {type:"dad" , price: 200}]
-const result = getPrice.reduce((total, currentValue) => total = total + currentValue.price,0);
-//console.log(result)
-
-// expand then sort
-export const getLawnTaskByCompany = (companyId) => {
-  return  fetch(`http://localhost:8088/lawntasks?_expand=user&_expand=serviceType&_sort=date`)
-  .then( (res) => res.json() )
-  .then( (res) => res.filter( (res1) => res1.user?.companyId === companyId))
-}
+  export const getAllCompletedJobs = (companyId) => {
+    return fetch(`http://localhost:8088/lawntasks?_expand=user&_expand=serviceType&_&isComplete=true&_sort=date&_order=desc`)
+    .then(( res) => res.json())
+    .then( (res) => res.filter((res1 ) => res1.user.companyId === companyId))
+  }
 
 export const getTotalPriceOfServices = (companyId) => {
  getLawnTaskByCompany(companyId)
@@ -46,6 +52,14 @@ export const returnAllServiceTypes = () => {
   return allServiceTypes;
 };
 getAllServices().then((res) => (allServiceTypes = res));
+
+export const getServiceTypeInfo = (companyId) => {
+  return fetch(`${remoteURL}/serviceTypes`)
+  .then( (res) => res.json())
+  .then( (res) => (res.filter((res1) => res1.companyId === companyId )))
+}
+
+
 
 // lawnTask for employees only
 // http://localhost:8088/users?_embed=lawntasks&_expand=company_?&isAdmin=false&isEmployee=true
@@ -86,3 +100,4 @@ export const getLawnTaskById = (id) => {
   return fetch(`${remoteURL}/lawntasks/${id}`)
   .then(data => data.json())
 }
+

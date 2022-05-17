@@ -45,11 +45,14 @@ const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer")).companyId
 
   return (
     <>
+    <div className="userButtons">
+    <div>
+      </div> 
       <button
         onClick={() => {
           nav("/users/create");
         }}
-      >
+        >
         Add User
       </button>
        <input type="search"
@@ -57,9 +60,10 @@ const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer")).companyId
       autoComplete="off"
       className="searchIt"
       placeholder="Enter A Name"
-       onChange={(e) => searchBar(e.target.value)}
-       
-     />
+      onChange={(e) => searchBar(e.target.value)}
+      
+      />
+      </div>
      <div className="userList">
        
 

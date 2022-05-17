@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { addTask, getAllServices } from "../../modules/TaskManager";
+import { addTask, getAllServices, getServiceTypeInfo } from "../../modules/TaskManager";
 import { getAllUsers } from "../../modules/UserManager";
 import { useNavigate } from "react-router-dom";
 import "./TaskList.css"
@@ -9,10 +9,12 @@ import "./TaskList.css"
 
 export const AddTaskForm = () => {
   const [users, setUsers] = useState([]);
-  const [task, setTask] = useState({});
+  const [task, setTask] = useState({isComplete: false});
   const [serviceTypes, setServiceType] = useState([]);
 
   const nav = useNavigate()
+
+  let loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer"))
 
   const companyId = JSON.parse(
     sessionStorage.getItem("lawn_customer")).companyId;
@@ -39,10 +41,12 @@ export const AddTaskForm = () => {
 
   useEffect(() => {
     getUsers();
-    getAllServices().then((res) => setServiceType(res));
+    getServiceTypeInfo(loggedUser.companyId).then((res) => setServiceType(res))
   }, []);
 
   return (
+              <div className="purple">
+                
     < div className="form">
       <form className="taskForm">
         <h2 className="taskForm__title">Enter A Lawn Task</h2>
@@ -58,7 +62,7 @@ export const AddTaskForm = () => {
                 copy.employeeId = parseInt(event.target.value);
                 setTask(copy);
               }}
-            >
+              >
               <option hidden> Select an employee </option>
               {employees.map((employee) => (
                 <option value={employee.id} key={employee.id}>
@@ -102,7 +106,7 @@ export const AddTaskForm = () => {
                 copy.serviceTypeId = parseInt(event.target.value);
                 setTask(copy);
               }}
-            >
+              >
               <option hidden> Choose one. </option>
               {serviceTypes.map((service) => (
                 <option value={service.id} key={service.id}>
@@ -145,5 +149,6 @@ export const AddTaskForm = () => {
         <button onClick={() => nav("/serviceTask")}>Cancel</button>
       </form>
     </div>
+                </div>
   );
 };

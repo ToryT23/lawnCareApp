@@ -9,7 +9,7 @@ import {
 export const EditUserForm = () => {
   const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer")).companyId
   const nav = useNavigate();
-  const [user, setUser] = useState({name:"", address:"", email:"", companyId:loggedUser, phoneNumber:"", isAdmin: false, isEmployee: false});
+  const [user, setUser] = useState({name:"", address:"", email:"", companyId:loggedUser, phoneNumber: 1 , isAdmin: false, isEmployee: false});
   const [isLoading, setisLoading] = useState(false);
   const { userId } = useParams();
   const [companies, setCompanies] = useState([]);
@@ -70,12 +70,13 @@ export const EditUserForm = () => {
               id="phoneNumber"
               autoFocus
               type="tel"
-              maxLength={10}
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              min={"1"}
+              maxLength={"10"}
+              pattern="(?=.*[0-9]).{10,10}"
               required
               className="form-control"
               placeholder="Phone number."
-              value={user.phoneNumber}
+              value={ parseInt(user.phoneNumber)}
               onChange={handleFieldChangeForNum}
             />
           </div>

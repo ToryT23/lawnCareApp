@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   getAllServices,
   getLawnTaskById,
+  getServiceTypeInfo,
   updateTask,
 } from "../../modules/TaskManager";
 import { getAllUsers } from "../../modules/UserManager";
@@ -43,6 +44,8 @@ export const EditTaskForm = () => {
     });
   };
 
+  const loggedUser = JSON.parse(sessionStorage.getItem("lawn_customer"))
+
   const companyId = JSON.parse(
     sessionStorage.getItem("lawn_customer")
   ).companyId;
@@ -64,7 +67,7 @@ export const EditTaskForm = () => {
     getLawnTaskById(taskId)
       .then((res) => setTask(res))
       .then(() => getUsers())
-      .then(() => getAllServices().then((res) => setServiceTypes(res)));
+      .then(() => getServiceTypeInfo(loggedUser.companyId).then((res) => setServiceTypes(res)));
 
     setisLoading(false);
   }, []);

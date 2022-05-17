@@ -9,6 +9,7 @@ import { UserForm } from "./compenents/users/AddUserForm";
 import { EditUserForm } from "./compenents/users/EditUserForm";
 import { AddTaskForm } from "./compenents/servicetask/AddTaskForm";
 import { EditTaskForm } from "./compenents/servicetask/EditTaskForm";
+import { HomePage } from "./compenents/home/Home";
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
   const PrivateRoute = () => {
@@ -24,6 +25,7 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
     <>
       <Routes>
         <Route path="/" element={<PrivateRoute />}>
+          <Route path="/"  element={ <HomePage />} />
           <Route path="/serviceTask" element={<TaskList />} />
           <Route path="/serviceTask/create" element={<AddTaskForm />} />
           <Route path="/lawntask/editTask/:taskId" element={<EditTaskForm />} />

@@ -4,15 +4,20 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.card {
+.card1 {
     border-style: dashed;
-    box-sizing: border-box
+    box-sizing: border-box;
+    width: 25em
+}
+.userButtons{
+    display: flex;
+    flex-direction: column;
 }
 
 .userForm
 {
     border-style: hidden;
-    background-color: green;
+    background-color: lawngreen;
     display: table-cell;
     font-size: xx-large;
 }

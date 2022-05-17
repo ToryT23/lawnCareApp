@@ -2,31 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css"
+import logo from "../../images/EASYCUTZ.png"
 
 export const NavBar = ({ clearUser, isAuthenticated }) => {
-  const navigate = useNavigate();
+  const nav = useNavigate();
 
   const handleLogout = () => {
     clearUser();
-    navigate("/");
+    nav("/");
   };
   return (
-    <div className="navbar">
+    <>
+
+    <div className="NavBackGround">
+      <div className="logoSettings">
+      <img src={logo} alt="logo" />
+      </div>
+
+    <div className="navbarTop">
+      <div className="navbar">
+
       <ul className="linkOrder">
-        <li>
-          <Link className="nav-link" to="/">
-            Home
-          </Link>
+        <li className="nav-item">
+          <button type="button"  className="nav-link" onClick={() => nav("/")}>Home</button>
         </li>
         <li className="nav-item">
-          <Link to="users">
-            Users
-          </Link>
+        <button type="button" className="nav-link" onClick={() => nav("users")}>Users</button>
         </li>
         <li className="nav-item">
-          <Link to="serviceTask">
-            Service Task
-          </Link>
+        <button type="button" className="nav-link" onClick={() => nav("serviceTask")}>Service Task</button>
         </li>
         <li className="nav-item">
           <button type="button" className="nav-link" onClick={handleLogout}>
@@ -35,5 +39,8 @@ export const NavBar = ({ clearUser, isAuthenticated }) => {
         </li>
       </ul>
     </div>
+      </div>
+    </div>
+    </>
   );
 };

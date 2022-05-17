@@ -4,6 +4,7 @@ import {
   deleteATask,
   getLawnTaskByCompany,
   getTotalPriceOfServices,
+  updateTask,
 } from "../../modules/TaskManager";
 import { getAllCompanies } from "../../modules/UserManager";
 import { TaskCard } from "./TaskCard";
@@ -18,11 +19,21 @@ export const TaskList = () => {
     sessionStorage.getItem("lawn_customer")
   );
 
+
   const handleDeleteLawnTask = (id) => {
     deleteATask(id).then(() => {
       getLawnTaskByCompany(loggedUser.companyId).then(setTask);
     });
   };
+
+  const handleCheckmark = (lawnTask) => {
+    
+      lawnTask.isComplete = true
+      getLawnTaskByCompany(loggedUser.companyId)
+    
+    updateTask(lawnTask).then( () => getLawnTaskByCompany(loggedUser.companyId).then(setTask) )
+  }
+
   useEffect(() => {
     getLawnTaskByCompany(loggedUser.companyId).then((res) => setTask(res));
     getAllCompanies().then((res) => {
@@ -35,7 +46,7 @@ export const TaskList = () => {
     <>
       <h2>{company.companyName}</h2>
       <div>
-        <button onClick={() => nav("/serviceTask/create")}>
+        <button  onClick={() => nav("/serviceTask/create")}>
           Create A Lawn Task
         </button>
       </div>
@@ -49,6 +60,7 @@ export const TaskList = () => {
             key={task.id}
             lawnTask={task}
             deleteATask={handleDeleteLawnTask}
+            checkBoxMark={handleCheckmark}
           />
           )
         )}
