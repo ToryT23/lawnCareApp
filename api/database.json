@@ -1,0 +1,348 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "companyName": "Correct Cutz"
+    },
+    {
+      "id": 2,
+      "companyName": "Tee Lawn Care"
+    }
+  ],
+  "serviceTypes": [
+    {
+      "id": 1,
+      "type": "Super Cut",
+      "price": 40,
+      "companyId": 1
+    },
+    {
+      "id": 2,
+      "type": "Super Cut",
+      "price": 60,
+      "companyId": 2
+    },
+    {
+      "id": 3,
+      "type": "Tree Removal",
+      "price": 100,
+      "companyId": 2
+    },
+    {
+      "id": 4,
+      "type": "Tree Removal",
+      "price": 100,
+      "companyId": 1
+    },
+    {
+      "id": 5,
+      "type": "Leave Removal",
+      "price": 75,
+      "companyId": 2
+    },
+    {
+      "id": 6,
+      "type": "Leave Removal",
+      "price": 80,
+      "companyId": 1
+    },
+    {
+      "id": 7,
+      "type": "Gardening",
+      "price": 100,
+      "companyId": 2
+    },
+    {
+      "id": 8,
+      "type": "Gardening",
+      "price": 100,
+      "companyId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "TJ",
+      "companyId": 2,
+      "phoneNumber": 1234567891,
+      "email": "t@class.com",
+      "isAdmin": true,
+      "isEmployee": true,
+      "address": "No place Like home 123 Dr"
+    },
+    {
+      "id": 2,
+      "name": "CJ",
+      "companyId": 1,
+      "phoneNumber": 9393431234,
+      "email": "c@class.com",
+      "isAdmin": true,
+      "isEmployee": true,
+      "address": "43 Lions Road"
+    },
+    {
+      "id": 3,
+      "name": "Miller",
+      "companyId": 2,
+      "phoneNumber": 1234567890,
+      "email": "m@class.com",
+      "isAdmin": false,
+      "isEmployee": false,
+      "address": "23 Likes Dot Org3"
+    },
+    {
+      "id": 4,
+      "name": "Zebro",
+      "companyId": 1,
+      "phoneNumber": 3334859673,
+      "email": "z@class.com",
+      "isAdmin": false,
+      "isEmployee": false,
+      "address": "30 Night Night Drive"
+    },
+    {
+      "id": 5,
+      "name": "Adam Jones",
+      "companyId": 1,
+      "phoneNumber": 3239043845,
+      "email": "a@class.com",
+      "isAdmin": false,
+      "isEmployee": true,
+      "address": "23 Pineapple Street"
+    },
+    {
+      "id": 6,
+      "name": "Lemons",
+      "companyId": 2,
+      "phoneNumber": 6373647384,
+      "email": "l@class.com",
+      "isAdmin": false,
+      "isEmployee": false,
+      "address": "72 Pillows Drive"
+    },
+    {
+      "name": "Mozie",
+      "companyId": 1,
+      "phoneNumber": 9399999999,
+      "email": "m@class.com",
+      "address": "38 mike drive",
+      "isEmployee": false,
+      "isAdmin": false,
+      "id": 7
+    },
+    {
+      "isEmployee": false,
+      "isAdmin": false,
+      "address": "344 Star lane road.",
+      "name": "Earl Sweet",
+      "companyId": 1,
+      "phoneNumber": 1111222222,
+      "email": "jjsdjj@o.com",
+      "id": 8
+    },
+    {
+      "isEmployee": false,
+      "isAdmin": false,
+      "name": "Bipp ",
+      "companyId": 1,
+      "phoneNumber": 3333333333,
+      "email": "bb@class.com",
+      "address": "38 bipp lane",
+      "id": 9
+    },
+    {
+      "companyId": 2,
+      "isEmployee": false,
+      "isAdmin": false,
+      "name": "Rosss",
+      "phoneNumber": 3636636633,
+      "email": "r@class.com",
+      "address": "29 Singles Lane",
+      "id": 10
+    },
+    {
+      "companyId": 1,
+      "isEmployee": false,
+      "isAdmin": false,
+      "name": "Charles Love",
+      "phoneNumber": 9383923456,
+      "email": "ch@class.com",
+      "address": "48 skyline dr.",
+      "id": 11
+    },
+    {
+      "companyId": 2,
+      "isEmployee": false,
+      "isAdmin": false,
+      "name": "Sharon ",
+      "phoneNumber": 8493904573,
+      "email": "s@class.com",
+      "address": "30 stonegate drive",
+      "id": 12
+    },
+    {
+      "companyId": 1,
+      "isEmployee": false,
+      "isAdmin": false,
+      "name": "Josh",
+      "phoneNumber": 7363384773,
+      "email": "j@class.com",
+      "address": "64 sky street",
+      "id": 13
+    }
+  ],
+  "lawntasks": [
+    {
+      "employeeId": 1,
+      "userId": 3,
+      "serviceTypeId": 4,
+      "date": "2022-05-27",
+      "notes": "RED flowers first.",
+      "id": 5,
+      "isComplete": false
+    },
+    {
+      "userId": 3,
+      "employeeId": 1,
+      "serviceTypeId": 3,
+      "date": "2022-05-23",
+      "notes": "Blow leaves near the street.",
+      "id": 6,
+      "isComplete": false
+    },
+    {
+      "userId": 6,
+      "employeeId": 1,
+      "serviceTypeId": 1,
+      "date": "2022-06-11",
+      "notes": "Grass needs to be cut!",
+      "id": 8,
+      "isComplete": false
+    },
+    {
+      "employeeId": 2,
+      "userId": 9,
+      "serviceTypeId": 1,
+      "date": "2022-05-06",
+      "notes": "Cut grass before mothers day.",
+      "id": 9,
+      "isComplete": true,
+      "user": {
+        "isEmployee": false,
+        "isAdmin": false,
+        "name": "Bipp ",
+        "companyId": 1,
+        "phoneNumber": 3333333333,
+        "email": "bb@class.com",
+        "address": "38 bipp lane",
+        "id": 9
+      },
+      "serviceType": {
+        "id": 1,
+        "type": "Super Cut",
+        "price": 40,
+        "companyId": 1
+      }
+    },
+    {
+      "employeeId": 5,
+      "userId": 7,
+      "serviceTypeId": 4,
+      "date": "2022-05-10",
+      "notes": "Family wants weeds cleaned up around the garden.",
+      "id": 10,
+      "isComplete": true,
+      "user": {
+        "name": "Mozie",
+        "companyId": 1,
+        "phoneNumber": 9399999999,
+        "email": "m@class.com",
+        "address": "38 mike drive",
+        "isEmployee": false,
+        "isAdmin": false,
+        "id": 7
+      },
+      "serviceType": {
+        "id": 4,
+        "type": "Tree Removal",
+        "price": 100,
+        "companyId": 1
+      }
+    },
+    {
+      "employeeId": 5,
+      "userId": 8,
+      "serviceTypeId": 1,
+      "date": "2022-05-09",
+      "notes": "gas tank is empty",
+      "id": 12,
+      "isComplete": true,
+      "user": {
+        "isEmployee": false,
+        "isAdmin": false,
+        "address": "344 memohis",
+        "name": "eee",
+        "companyId": 1,
+        "phoneNumber": 1111222222,
+        "email": "jjsdjj@o.com",
+        "id": 8
+      },
+      "serviceType": {
+        "id": 1,
+        "type": "Super Cut",
+        "price": 40,
+        "companyId": 1
+      }
+    },
+    {
+      "employeeId": 1,
+      "userId": 10,
+      "serviceTypeId": 4,
+      "date": "2022-05-21",
+      "notes": "More mulch",
+      "id": 13,
+      "isComplete": false
+    },
+    {
+      "serviceTypeId": 4,
+      "date": "2022-05-21",
+      "userId": 7,
+      "employeeId": 2,
+      "id": 14,
+      "isComplete": false
+    },
+    {
+      "employeeId": 1,
+      "userId": 3,
+      "date": "2022-05-17",
+      "serviceTypeId": 2,
+      "id": 15,
+      "isComplete": false
+    },
+    {
+      "isComplete": false,
+      "employeeId": 2,
+      "userId": 8,
+      "serviceTypeId": 8,
+      "date": "2022-06-03",
+      "id": 16
+    },
+    {
+      "isComplete": false,
+      "employeeId": 1,
+      "userId": 12,
+      "serviceTypeId": 5,
+      "date": "2022-05-16",
+      "notes": "Blow the leaves by the street.",
+      "id": 17
+    },
+    {
+      "isComplete": false,
+      "employeeId": 5,
+      "userId": 8,
+      "serviceTypeId": 1,
+      "date": "2022-05-17",
+      "id": 18
+    }
+  ]
+}

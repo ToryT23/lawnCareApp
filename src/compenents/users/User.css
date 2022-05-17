@@ -1,0 +1,37 @@
+.userList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card1 {
+    border-style: dashed;
+    box-sizing: border-box;
+    width: 25em
+}
+.userButtons{
+    display: flex;
+    flex-direction: column;
+}
+
+.userForm
+{
+    border-style: hidden;
+    background-color: lawngreen;
+    display: table-cell;
+    font-size: xx-large;
+}
+
+h2 {
+    color: black
+}
+input {
+    height: 65px;
+    font-size: x-large;
+    width: 300px;
+}
+
+.pink {
+    display: flex;
+    justify-content: center;
+}

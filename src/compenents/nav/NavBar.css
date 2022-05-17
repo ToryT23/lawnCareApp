@@ -1,0 +1,26 @@
+ul {
+    display: flex;
+    list-style-type: none;
+}
+.NavBackGround
+{
+    background-color: green;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+.nav-link{
+    background-color: lightgreen;
+  color: black;
+  border: 5px solid #4CAF50;
+  width: 150px;
+  transition-duration: 0.8s;
+  height: 40px;
+}
+
+img {
+    height: 7em;
+    width: 6.5em;
+}
+
